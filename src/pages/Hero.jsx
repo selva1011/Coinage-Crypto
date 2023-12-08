@@ -1,4 +1,4 @@
-import "animate.css";
+import 'animate.css/animate.css';
 //import response from "../constants/head_response.json";
 import { Ethereum, Bitcoin } from "../assets/images";
 import { useState, useEffect } from "react";
