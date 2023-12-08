@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Recursive:wght@300;400;500;600;700;800;900;1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.my-element {
+  display: inline-block;
+  margin: 2 2rem;
+
+  animation: bounce; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s; /* don't forget to set a duration! */
+}
+
+.text-main {
+  background: radial-gradient(circle at bottom left, #00D1FF 0%, #A100F1 50%, #FF000F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-main-1 {
+  background: radial-gradient(circle at bottom left, #00D1FF 0%, #A100F1 50%, #FF000F 100%);
+}
+
+.text-forever {
+  color: radial-gradient(circle at bottom left, #00D1FF 0%, #A100F1 50%, #FF000F 100%);
+}
+
+.bg-main {
+  background: #03001e;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #8d0068, #55018c, #03001e);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #640049, #440171, #03001e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #effcff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #A100F1;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #FF000F;
+}
+
+
+td {
+  font-size: 1.5rem;
+}
+
+th {
+
+  padding-bottom: .5rem;
+  padding-top: .5rem;
+}
+
+@layer utilities {
+  .nav-play {
+    background-color: #03001e;
+    box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.16);
+    position: fixed;
+  }
+
+  .padding {
+    @apply sm:px-16 px-8 sm:py-24 py-12;
+  }
+
+  .padding-x {
+    @apply sm:px-16 px-8;
+  }
+
+  .padding-y {
+    @apply sm:py-24 py-12;
+  }
+
+  .padding-l {
+    @apply sm:pl-16 pl-8;
+  }
+
+  .padding-r {
+    @apply sm:pr-16 pr-8;
+  }
+
+  .padding-t {
+    @apply sm:pt-24 pt-12;
+  }
+
+  .padding-b {
+    @apply sm:pb-24 pb-12;
+  }
+
+  .info-text {
+    @apply font-Outfit text-lg leading-7;
+  }
+}
+
+@layer components {
+  .back-Color {
+    background: #03001e;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #8d0068, #55018c, #03001e);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #640049, #440171, #03001e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+
+  .max-container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .input {
+    @apply sm:flex-1 max-sm:w-full text-base leading-normal pl-5 max-sm:p-5 outline-none sm:border-none border max-sm:border max-sm:rounded-full;
+  }
+}
+
+.main {
+  background: #03001e;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #8d0068, #55018c, #03001e);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #640049, #440171, #03001e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
