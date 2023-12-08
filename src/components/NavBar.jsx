@@ -1,5 +1,4 @@
 import { navLinks } from "../constants";
-import AOS from 'aos';
 import {
   RiTwitterLine,
   RiDiscordLine,
@@ -9,7 +8,7 @@ import {
 import { useState } from "react";
 
 const NavBar = () => {
-  AOS.init();
+  
 
   const [sticky, setSticky] = useState(false);
   const [phone, setPhone] = useState(false);
