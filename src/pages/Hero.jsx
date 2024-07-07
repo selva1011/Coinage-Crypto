@@ -1,4 +1,4 @@
-import 'animate.css/animate.css';
+import "animate.css";
 //import response from "../constants/head_response.json";
 import { Ethereum, Bitcoin } from "../assets/images";
 import { useState, useEffect } from "react";
@@ -32,7 +32,7 @@ const Hero = () => {
             CRYPTO REVOLUTION
           </span>
         </h1>
-        <div className="flex absolute left-28 max-sm:hidden overflow-visible pb-32">
+        <div className="flex absolute left-28 max-sm:left-4 max-sm:top-52 overflow-visible pb-32">
           <img
             className="animate__animated animate__bounce animate__infinite animate__slower"
             src={Ethereum}
@@ -41,13 +41,13 @@ const Hero = () => {
             height={90}
           />
         </div>
-        <div className="flex absolute right-28 max-sm:hidden overflow-visible pb-32">
+        <div className="flex absolute right-28 max-sm:right-4 max-sm:top-2 overflow-visible pb-32">
           <img
             className="animate__animated animate__bounce animate__infinite animate__slower"
             src={Bitcoin}
             alt="ethereum"
-            width={90}
-            height={90}
+            width={88}
+            height={88}
           />
         </div>
 
