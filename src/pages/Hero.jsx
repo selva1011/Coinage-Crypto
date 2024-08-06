@@ -5,8 +5,9 @@ import { useState, useEffect } from "react";
 
 const Hero = () => {
   const [data, setData] = useState([]);
+  const [itemsPerPage, setItemsPerPage] = useState(3);
 
-  const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&order=market_cap_desc&per_page=5&page=1&sparkline=false
+  const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&order=market_cap_desc&per_page=${itemsPerPage}&page=1&sparkline=false&x_cg_demo_api_key=CG-5Pd4jW1fQLGWez4vN1p1MzqG
   `;
 
   useEffect(() => {
@@ -16,7 +17,24 @@ const Hero = () => {
       setData(json);
     };
     fetchData();
-  }, [url]);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setItemsPerPage(3); // Mobile
+      } else {
+        setItemsPerPage(6); // Desktop
+      }
+    };
+
+    handleResize(); // Set initial value
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <section
@@ -41,7 +59,7 @@ const Hero = () => {
             height={90}
           />
         </div>
-        <div className="flex absolute right-28 max-sm:right-4 max-sm:top-2 overflow-visible pb-32">
+        <div className="flex absolute right-28 max-sm:right-4 max-sm:top-52 overflow-visible pb-32">
           <img
             className="animate__animated animate__bounce animate__infinite animate__slower"
             src={Bitcoin}
@@ -51,24 +69,28 @@ const Hero = () => {
           />
         </div>
 
-        <div className="flex justify-evenly pt-10 items-end max-sm:hidden ">
+        <div className="flex justify-evenly pt-10 items-end  ">
           {data.map((item) => (
-            <div className="flex flex-col items-center cursor-pointer">
-              <img className="h-24 w-24" src={item.image} alt={item.name} />
+            <div className="flex flex-col items-center cursor-pointer max-sm:overflow-hidden">
+              <img
+                className="h-24 w-24 max-sm:h-12 max-sm:w-12"
+                src={item.image}
+                alt={item.name}
+              />
               <div className="flex font-Outfit text-xl p-3 font-bold">
-                <p className="pr-2">{item.name}</p>
+                <p className="pr-2 max-sm:text-sm">{item.name}</p>
                 <p
-                  className={ 
-                    "slider-coin__price " +
+                  className={
+                    "slider-coin__price max-sm:text-sm" +
                     (item.price_change_percentage_24h >= 0
-                      ? "text-green-700"
-                      : "text-red-700")
+                      ? "text-green-700 max-sm:text-sm"
+                      : "text-red-700 max-sm:text-sm")
                   }
                 >
                   {item.price_change_percentage_24h?.toFixed(2) + " %"}
                 </p>
               </div>
-              <p className="font-Outfit text-xl font-semibold">
+              <p className="font-Outfit text-xl font-semibold max-sm:text-sm">
                 {" "}
                 {"₹ " + item.current_price.toFixed(2)}
               </p>
