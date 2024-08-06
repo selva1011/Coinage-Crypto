@@ -7,6 +7,25 @@ const Hero = () => {
   const [data, setData] = useState([]);
   const [itemsPerPage, setItemsPerPage] = useState(3);
 
+  const numberWithIndianCommas = (x) => {
+    let parts = x.toString().split(".");
+    let integerPart = parts[0];
+    let decimalPart = parts.length > 1 ? "." + parts[1] : "";
+
+    let lastThreeDigits = integerPart.slice(-3);
+    let otherDigits = integerPart.slice(0, -3);
+
+    if (otherDigits !== "") {
+      lastThreeDigits = "," + lastThreeDigits;
+    }
+
+    return (
+      otherDigits.replace(/\B(?=(\d{2})+(?!\d))/g, ",") +
+      lastThreeDigits +
+      decimalPart
+    );
+  };
+
   const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&order=market_cap_desc&per_page=${itemsPerPage}&page=1&sparkline=false&x_cg_demo_api_key=CG-5Pd4jW1fQLGWez4vN1p1MzqG
   `;
 
@@ -92,7 +111,7 @@ const Hero = () => {
               </div>
               <p className="font-Outfit text-xl font-semibold max-sm:text-sm">
                 {" "}
-                {"₹ " + item.current_price.toFixed(2)}
+                {"₹ " + numberWithIndianCommas(item.current_price.toFixed(2))}
               </p>
             </div>
           ))}
